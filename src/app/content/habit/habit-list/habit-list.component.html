@@ -1,7 +1,15 @@
 <div class="habit-list">
     <div class="flex-around">
-        <div class="card" *ngFor="let habit of habitList">
+        <div class="card" *ngFor="let habit of habitList" (click)="popModal(habit.id)">
             {{ habit.name }}
         </div>
     </div>
+    <Modal [(ngModel)]="showModal" [transparent]="true" [title]="'来打卡啦老妹儿'" class="modal">
+        <div class="content">
+            <textarea name="" id="" cols="30" rows="10" [(ngModel)]="punchContent"></textarea>
+        </div>
+        <div class="footer">
+            <div Button [type]="'primary'" (click)="doPunch()">走你</div>
+        </div>
+    </Modal>
 </div>

@@ -1,16 +1,31 @@
-.card {
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    text-align: center;
-    margin: 20px;
-    border-radius: 15px;
-    background: #fff;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    -webkit-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-    position: relative;
-    z-index: 1;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+.habit-list {
+    .card {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        margin: 20px;
+        border-radius: 15px;
+        background: #fff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        position: relative;
+        z-index: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    .modal {
+        .content textarea {
+            width: 100%;
+            border: 1px solid #e2e2e2;
+            border-radius: 5px;
+            resize: none;
+            padding: 5px 10px;
+            margin: 10px 0 20px 0;
+        }
+        & :ng-deep .am-modal-transparent {
+            width: 80%;
+        }
+    }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../service/api.service';
-import { isFullScreen } from '../shared/util';
 import { Router } from '@angular/router';
 import { ToastService } from 'ng-zorro-antd-mobile';
 
@@ -18,8 +17,9 @@ export class LoginComponent implements OnInit {
     constructor(private router: Router, private apiService: ApiService, private toast: ToastService) { }
 
     ngOnInit() {
-        if (isFullScreen()) {
-            // alert('全面屏手机');
+        const hasLogin = localStorage.getItem('userId');
+        if (hasLogin) {
+            this.router.navigate(['/content']);
         }
     }
 
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
             if (code === 0) {
                 const { userId } = data;
                 localStorage.setItem('userId', userId);
-                this.router.navigate(['/habit/list']);
+                this.router.navigate(['/content']);
             } else {
                 this.toast.fail(msg, 2000);
             }

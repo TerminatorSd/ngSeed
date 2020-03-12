@@ -43,6 +43,14 @@ export class ApiService {
         );
     }
 
+    excPunch(params): Observable<any> {
+        return this.http.post<any>(`${this.domain}/punch`, params, httpOptions)
+            .pipe(
+                // tap(res => this.log('fetched list')),
+                catchError(this.handleError('user do punch', []))
+            );
+    }
+
     // addHero (hero: Hero): Observable<any> {
     //   return this.http.post<any>(this.heroesUrl, hero, httpOptions).pipe(
     //     tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
