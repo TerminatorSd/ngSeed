@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import { Router } from '@angular/router';
+import { ToastService } from 'ng-zorro-antd-mobile';
 
 @Component({
-    selector: 'app-habit-list',
+    selector: 'habit-list',
     templateUrl: './habit-list.component.html',
     styleUrls: ['./habit-list.component.scss']
 })
@@ -14,7 +15,7 @@ export class HabitListComponent implements OnInit {
         name: string;
         img: string;
     }[];
-    constructor(private router: Router, private apiService: ApiService) { }
+    constructor(private router: Router, private apiService: ApiService, private toast: ToastService) { }
 
     ngOnInit() {
         this.userId = localStorage.getItem('userId');
@@ -31,7 +32,5 @@ export class HabitListComponent implements OnInit {
             }
         });
     }
-
-    
 
 }

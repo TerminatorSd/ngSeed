@@ -6,19 +6,17 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
+    hidden = false;
+    fullScreen = false;
+    topFlag = false;
+    tintColor = '#108ee9';
+    unselectedTintColor = '#888';
+    selectedIndex = 0;
 
     constructor() { }
 
     ngOnInit() {
     }
-
-    hidden: boolean = false;
-    fullScreen: boolean = false;
-    topFlag: boolean = false;
-    tintColor: string = '#108ee9';
-    unselectedTintColor: string = '#888';
-    tabbarStyle: object = { height: '400px' };
-    selectedIndex: number = 1;
 
     showTabBar(event) {
         event.preventDefault();
@@ -34,19 +32,6 @@ export class ContentComponent implements OnInit {
             this.selectedIndex++;
         }
         console.log('selectedIndex: ', this.selectedIndex);
-    }
-
-    showFullScreen(event) {
-        event.preventDefault();
-        this.fullScreen = !this.fullScreen;
-        this.tabbarStyle = this.fullScreen
-            ? {
-                position: 'fixed',
-                height: '100%',
-                width: '100%',
-                top: 0
-            }
-            : { height: '400px' };
     }
 
     changePosition(event) {
