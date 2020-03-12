@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
 
 import { LoginComponent } from './login/login.component';
-import { HabitListComponent } from './habit/habit-list/habit-list.component';
+import { HabitListComponent } from './content/habit/habit-list/habit-list.component';
 import { ContentComponent } from './content/content.component';
 
 @NgModule({
