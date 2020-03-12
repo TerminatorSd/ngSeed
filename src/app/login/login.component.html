@@ -1,0 +1,21 @@
+<div class="wrapper">
+    <div class="layer"></div>
+    <div class="container">
+        <a class="logo" href="#"><img src="../../assets/img/ya.jpg" alt="Logo" /></a>
+        <form action="#" method="POST" id="login">
+            <input class="field" autocomplete="off" name="name" placeholder="Username" type="text"
+                [(ngModel)]="name" />
+            <input class="field" autocomplete="off" name="password" placeholder="Password" type="password"
+                [(ngModel)]="password"/>
+            <input class="field submit" name="submit" type="submit" value="登录"
+                *ngIf="!needRegister" (click)="doLogin()" />
+            <input class="field submit" name="submit" type="submit" value="注册"
+                *ngIf="needRegister" (click)="doRegister()" />
+            <!-- <a class="link" href="#">Forgot Password?</a><br> -->
+            <a class="link" href="#" (click)="needRegister = !needRegister">
+                {{ !needRegister ? '还没有账号，我得先注册' : '我已经注册了，让我去登录'  }}
+            </a>
+        </form>
+    </div>
+    <div class="invitation"><a class="link" href="#">Forget Password?</a></div>
+</div>
