@@ -1,0 +1,37 @@
+.habit-detail {
+    .punch {
+        height: 60vw;
+        background-color: #fff;
+        border-bottom: 1px solid #f1f1f1;
+        .today {
+            text-align: center;
+            padding: 6vw 0;
+            color: grey;
+        }
+        .circle {
+            width: 28vw;
+            height: 28vw;
+            margin: 0 auto;
+            border: 3vw solid grey;
+            border-radius: 100%;
+            // 1afa29
+            img {
+                width: 22vw;
+                margin: 3vw;
+            }
+        }
+    }
+    .modal {
+        .content textarea {
+            width: 90%;
+            border: 1px solid #e2e2e2;
+            border-radius: 5px;
+            resize: none;
+            padding: 5px 10px;
+            margin: 10px auto;
+        }
+        ::ng-deep .am-modal-transparent {
+            width: 80% !important;
+        }
+    }
+}

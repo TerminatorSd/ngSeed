@@ -12,13 +12,15 @@ import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
 import { LoginComponent } from './login/login.component';
 import { HabitListComponent } from './content/habit/habit-list/habit-list.component';
 import { ContentComponent } from './content/content.component';
+import { HabitDetailComponent } from './content/habit/habit-detail/habit-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HabitListComponent,
-    ContentComponent
+    ContentComponent,
+    HabitDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,7 @@ import { ContentComponent } from './content/content.component';
     NgZorroAntdMobileModule
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    // { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })

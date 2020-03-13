@@ -1,0 +1,18 @@
+<div class="habit-detail">
+    <div class="punch">
+        <div class="today">
+            2020/3/13
+        </div>
+        <div class="circle" (click)="popModal()">
+            <img src="../../../../assets/img/habit/dui-grey.svg" alt="">
+        </div>
+    </div>
+    <Modal [(ngModel)]="showModal" [transparent]="true" [title]="'来打卡啦老妹儿'" class="modal">
+        <div class="content">
+            <textarea name="punchText" id="" cols="30" rows="10" [(ngModel)]="punchContent"></textarea>
+        </div>
+        <div class="footer">
+            <div Button [type]="'primary'" (click)="doPunch()">走你</div>
+        </div>
+    </Modal>
+</div>
