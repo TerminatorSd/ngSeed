@@ -24,8 +24,27 @@
         color: white;
         border-radius: 26px;
         position: fixed;
-        bottom: 10px;
+        bottom: 12px;
         left: calc(50vw - 50px);
     }
-
+    .modal {
+        .content textarea {
+            width: 90%;
+            border: 1px solid #e2e2e2;
+            border-radius: 5px;
+            resize: none;
+            padding: 5px 10px;
+            margin: 10px auto;
+        }
+        ::ng-deep .am-modal-transparent {
+            width: 80% !important;
+        }
+        .img-wrapper {
+            margin: 2vw 0;
+            img {
+                width: 6vw;
+                margin: 2vw;
+            }
+        }
+    }
 }

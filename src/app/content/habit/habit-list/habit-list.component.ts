@@ -16,6 +16,8 @@ export class HabitListComponent implements OnInit {
         img: string;
     }[];
     habitId = '';
+    showModal = true;
+    habitImgList = ['code', 'dui-grey', 'no-data', 'code', 'reading'];
 
     constructor(private router: Router, private apiService: ApiService, private toast: ToastService) { }
 
@@ -40,6 +42,6 @@ export class HabitListComponent implements OnInit {
     }
 
     addHabit() {
-        this.toast.offline('暂时还不能添加习惯哦~', 2000);
+        this.showModal = true;
     }
 }

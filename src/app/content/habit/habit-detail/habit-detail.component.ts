@@ -16,7 +16,7 @@ export class HabitDetailComponent implements OnInit {
     showModal = false;
     userId: string;
     today = new Date().toLocaleDateString();
-    punchFlag = true;
+    punchFlag = false;
 
     constructor(private apiService: ApiService, private toast: ToastService, private router: Router, private route: ActivatedRoute) { }
 
@@ -53,9 +53,6 @@ export class HabitDetailComponent implements OnInit {
                 this.punchFlag = data[0] && this.isToday(data[0].createTime);
             } else {
                 this.toast.fail('获取历史记录出错咯,待会再来看看~', 2000);
-                this.habitHistoryList = [
-                    { word: 'asdf', img: 'adsf', createTime: '2019-03-11' }
-                ];
             }
         });
     }

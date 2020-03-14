@@ -6,4 +6,17 @@
     <div class="add-habit" (click)="addHabit()">
         添加习惯
     </div>
+    <Modal [(ngModel)]="showModal" [transparent]="true" [title]="'新的开始'" class="modal">
+        <div class="content">
+            <input type="text" name="habitName" placeholder="输入新的习惯名">
+        </div>
+        <div class="img-wrapper">
+            <ng-container *ngFor="let img of habitImgList">
+                <img [src]="'../../../../assets/img/habit/' + img + '.svg'" alt="">
+            </ng-container>
+        </div>
+        <div class="footer">
+            <div Button [type]="'primary'" (click)="doPunch()">走你</div>
+        </div>
+    </Modal>
 </div>

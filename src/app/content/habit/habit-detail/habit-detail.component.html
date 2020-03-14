@@ -9,15 +9,24 @@
         </div>
     </div>
     <div class="habit-history">
-        <div *ngFor="let item of habitHistoryList" class="item">
-            <div class="left">
-                <span>day 1</span><br><br>
-                <span>3-14 22:00</span>
+        <div class="my-history">
+            我的记录
+        </div>
+        <ng-container *ngIf="habitHistoryList.length">
+            <div *ngFor="let item of habitHistoryList" class="item">
+                <div class="left">
+                    <span>day 1</span><br><br>
+                    <span>3-14 22:00</span>
+                </div>
+                <div class="right clearfix">
+                    <span class="word">今天吃奈雪🌶</span>
+                    <img src="../../../../assets/img/ya.jpg" alt="">
+                </div>
             </div>
-            <div class="right clearfix">
-                <span class="word">今天吃奈雪🌶</span>
-                <img src="../../../../assets/img/ya.jpg" alt="">
-            </div>
+        </ng-container>
+
+        <div class="no-data" *ngIf="!habitHistoryList.length">
+            <img src="../../../../assets/img/habit/no-data-yo.svg" alt="">
         </div>
     </div>
     <Modal [(ngModel)]="showModal" [transparent]="true" [title]="'来打卡啦老妹儿'" class="modal">
