@@ -35,8 +35,8 @@ export class HabitListComponent implements OnInit {
         });
     }
 
-    goToDetail(habitId) {
-        this.router.navigate(['/habit/detail', habitId]);
+    goToDetail(id, name) {
+        this.router.navigate(['/habit/detail'], { queryParams: { id, name } });
     }
 
     addHabit() {

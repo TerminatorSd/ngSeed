@@ -1,10 +1,23 @@
 <div class="habit-detail">
     <div class="punch">
         <div class="today">
-            2020/3/13
+            {{ today }}
         </div>
-        <div class="circle" (click)="popModal()">
-            <img src="../../../../assets/img/habit/dui-grey.svg" alt="">
+        <div class="circle" [ngClass]="{'active': punchFlag}" (click)="popModal()">
+            <img *ngIf="!punchFlag" src="../../../../assets/img/habit/dui-grey.svg" alt="">
+            <img *ngIf="punchFlag" src="../../../../assets/img/habit/dui-active.svg" alt="">
+        </div>
+    </div>
+    <div class="habit-history">
+        <div *ngFor="let item of habitHistoryList" class="item">
+            <div class="left">
+                <span>day 1</span><br><br>
+                <span>3-14 22:00</span>
+            </div>
+            <div class="right clearfix">
+                <span class="word">今天吃奈雪🌶</span>
+                <img src="../../../../assets/img/ya.jpg" alt="">
+            </div>
         </div>
     </div>
     <Modal [(ngModel)]="showModal" [transparent]="true" [title]="'来打卡啦老妹儿'" class="modal">

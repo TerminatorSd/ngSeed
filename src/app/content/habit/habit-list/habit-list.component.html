@@ -1,5 +1,5 @@
 <div class="habit-list">
-    <div class="card" *ngFor="let habit of habitList" (click)="goToDetail(habit.id)">
+    <div class="card" *ngFor="let habit of habitList" (click)="goToDetail(habit.id, habit.name)">
         <img [src]="'../../../../assets/img/habit/' + (habit.img || 'no-data') + '.svg'" alt="" class="pull-left">
         <span>{{ habit.name }}</span>
     </div>

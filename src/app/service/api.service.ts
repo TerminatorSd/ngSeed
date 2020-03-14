@@ -19,6 +19,10 @@ export class ApiService {
 
     constructor(private http: HttpClient, private messageService: MessageService) { }
 
+    getQueryString(params): string {
+        return Object.keys(params).map(item => `${item}=${params[item]}`).join('&');
+    }
+
     excRegister(params): Observable<any> {
         return this.http.post<any>(`${this.domain}/user/register`, params, httpOptions)
             .pipe(
@@ -49,6 +53,14 @@ export class ApiService {
                 // tap(res => this.log('fetched list')),
                 catchError(this.handleError('user do punch', []))
             );
+    }
+
+    fetchHabitHistory(params): Observable<any> {
+        return this.http.get<any>(`${this.domain}/habit/history?${this.getQueryString(params)}`, httpOptions)
+        .pipe(
+            // tap(res => this.log('fetched list')),
+            catchError(this.handleError('getHabitList', []))
+        );
     }
 
     // addHero (hero: Hero): Observable<any> {

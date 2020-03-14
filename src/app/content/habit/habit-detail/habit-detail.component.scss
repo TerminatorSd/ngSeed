@@ -14,10 +14,39 @@
             margin: 0 auto;
             border: 3vw solid grey;
             border-radius: 100%;
-            // 1afa29
+            &.active {
+                border-color: #1afa29;
+            }
             img {
                 width: 22vw;
                 margin: 3vw;
+            }
+        }
+    }
+    .habit-history {
+        .item {
+            height: 20vw;
+            margin: 2vw;
+            background-color: white;
+            border-radius: 1vw;
+            .left {
+                float: left;
+                width: 16vw;
+                height: 16vw;
+                margin: 2vw;
+                text-align: center;
+                border-right: 1px solid grey;
+            }
+            .right {
+                margin-left: 20vw;
+                // float: left;
+                img {
+                    float: right;
+                    width: 16vw;
+                    height: 16vw;
+                    margin: 2vw;
+                    border-radius: 1vw;
+                }
             }
         }
     }

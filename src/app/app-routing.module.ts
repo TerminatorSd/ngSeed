@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'content', component: ContentComponent },
-  { path: 'habit/detail/:id', component: HabitDetailComponent },
+  { path: 'habit/detail', component: HabitDetailComponent },
 
 //   { path: 'post/detail/:id', component: PostDetailComponent },
 //   { path: 'reading', component: ReadingComponent },
