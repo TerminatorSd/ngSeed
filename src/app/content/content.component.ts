@@ -34,7 +34,6 @@ export class ContentComponent implements OnInit {
 
     changePosition(event) {
         event.preventDefault();
-        this.topFlag = !this.topFlag;
     }
 
     tabBarTabOnPress(pressParam: any) {
