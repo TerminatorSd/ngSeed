@@ -6,17 +6,19 @@
     <div class="add-habit" (click)="addHabit()">
         添加习惯
     </div>
-    <Modal [(ngModel)]="showModal" [transparent]="true" [title]="'新的开始'" class="modal">
+    <Modal [(ngModel)]="showModal" [transparent]="true" [title]="'整个新习惯'" class="modal">
         <div class="content">
-            <input type="text" name="habitName" placeholder="输入新的习惯名">
+            <input type="text" name="newHabitName" placeholder="输入新的习惯名" [(ngModel)]="newHabitName">
         </div>
         <div class="img-wrapper">
-            <ng-container *ngFor="let img of habitImgList">
-                <img [src]="'../../../../assets/img/habit/' + img + '.svg'" alt="">
+            <ng-container *ngFor="let img of habitImgList; let i = index">
+                <img [src]="'../../../../assets/img/habit/list/' + img + '.svg'"
+                    [ngClass]="{'chosen': i === nowChosenIndex}" (click)="choseOneImg(i)">
+                <br *ngIf="!((i+1) % 5)">
             </ng-container>
         </div>
         <div class="footer">
-            <div Button [type]="'primary'" (click)="doPunch()">走你</div>
+            <button (click)="confirmAdd()">走你</button>
         </div>
     </Modal>
 </div>

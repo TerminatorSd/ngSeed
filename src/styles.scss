@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import './var.scss';
+
 body {
     background-color: #f1f1f1;
 }
@@ -50,4 +52,12 @@ input {
     border: 1px solid #e2e2e2;
     border-radius: 3px;
     padding: 5px 10px;
+}
+
+button {
+    padding: 8px 20px;
+    background: $main-green;
+    border: none;
+    border-radius: 18px;
+    color: white;
 }

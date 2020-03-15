@@ -63,6 +63,14 @@ export class ApiService {
         );
     }
 
+    addHabit(params): Observable<any> {
+        return this.http.post<any>(`${this.domain}/habit/add`, params, httpOptions)
+        .pipe(
+            // tap(res => this.log('fetched list')),
+            catchError(this.handleError('add new habit', []))
+        );
+    }
+
     // addHero (hero: Hero): Observable<any> {
     //   return this.http.post<any>(this.heroesUrl, hero, httpOptions).pipe(
     //     tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),

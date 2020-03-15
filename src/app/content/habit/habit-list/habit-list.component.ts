@@ -16,8 +16,11 @@ export class HabitListComponent implements OnInit {
         img: string;
     }[];
     habitId = '';
-    showModal = true;
-    habitImgList = ['code', 'dui-grey', 'no-data', 'code', 'reading'];
+    newHabitName = '';
+    showModal = false;
+    habitImgList = ['ao', 'book', 'code', 'dance', 'english', 'happy', 'mask', 'money', 'music', 'planet',
+        'reading', 'skates', 'sun', 'water', 'veg', 'earth', 'yoga', 'yumao', 'zaoqi', 'zaoshui'];
+    nowChosenIndex = -1;
 
     constructor(private router: Router, private apiService: ApiService, private toast: ToastService) { }
 
@@ -43,5 +46,27 @@ export class HabitListComponent implements OnInit {
 
     addHabit() {
         this.showModal = true;
+    }
+
+    choseOneImg(index) {
+        this.nowChosenIndex = index;
+    }
+
+    confirmAdd() {
+        if (!this.newHabitName || this.nowChosenIndex < 0) {
+            this.toast.offline('填点啥呗~_~!', 1000);
+            return;
+        }
+        this.apiService.excLogin({
+            user_id: this.userId,
+            habit_name: this.newHabitName,
+            img: this.habitImgList[this.nowChosenIndex]
+        }).subscribe(({ code, msg }) => {
+            if (code === 0) {
+
+            } else {
+                this.toast.fail('后台接口还没好哟,待会再来看看~', 2000);
+            }
+        });
     }
 }

@@ -45,8 +45,8 @@ export class HabitDetailComponent implements OnInit {
 
     getHabitHistory() {
         this.apiService.fetchHabitHistory({
-            userId: this.userId,
-            habitId: this.habitId
+            user_id: this.userId,
+            habit_id: this.habitId
         }).subscribe(({ code, msg, data }) => {
             if (code === 0) {
                 this.habitHistoryList = data;
@@ -67,12 +67,12 @@ export class HabitDetailComponent implements OnInit {
             return;
         }
         this.apiService.excPunch({
-            userId: this.userId,
-            habitId: this.habitId,
-            habitName: this.habitName,
+            user_id: this.userId,
+            habit_id: this.habitId,
+            habit_name: this.habitName,
             word: this.punchContent,
             img: 'img',
-            punchFlag: this.habitHistoryList[0] && this.isToday(this.habitHistoryList[0].createTime)
+            punch_flag: this.habitHistoryList[0] && this.isToday(this.habitHistoryList[0].createTime)
         }).subscribe(({ code, msg }) => {
                 if (code === 0) {
                     this.toast.success('打卡成功啦~', 2000);
