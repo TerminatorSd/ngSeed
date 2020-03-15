@@ -13,8 +13,8 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class ApiService {
 
-    private domain = 'http://39.108.163.91:8080';  // URL to web api
-    // private domain = 'http://localhost:8080';  // URL to web api
+    // private domain = 'http://39.108.163.91:8080';  // URL to web api
+    private domain = 'http://172.20.10.6:8080';  // URL to web api
 
 
     constructor(private http: HttpClient, private messageService: MessageService) { }

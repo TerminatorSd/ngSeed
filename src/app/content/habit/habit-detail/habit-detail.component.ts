@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router'
 export class HabitDetailComponent implements OnInit {
     habitId = '';
     habitName = '';
-    habitHistoryList: { word, img, createTime }[] = [];
+    habitHistoryList: { word: string; img: string; create_time: string; day: string; time: string; }[] = [];
     punchContent = '';
     showModal = false;
     userId: string;
@@ -49,8 +49,17 @@ export class HabitDetailComponent implements OnInit {
             habit_id: this.habitId
         }).subscribe(({ code, msg, data }) => {
             if (code === 0) {
-                this.habitHistoryList = data;
-                this.punchFlag = data[0] && this.isToday(data[0].createTime);
+                this.habitHistoryList = data || [];
+                this.habitHistoryList.forEach(item => {
+                    item.day = item.create_time
+                        .split(' ')[0].split('-')
+                        .filter((ele, index) => index > 0).join('-');
+                    item.time = item.create_time
+                        .split(' ')[1].split(':')
+                        .filter((ele, index) => index < 2).join(':');
+                });
+                this.punchFlag = data[0] && this.isToday(data[0].create_time);
+                console.log(this.punchFlag);
             } else {
                 this.toast.fail('获取历史记录出错咯,待会再来看看~', 2000);
             }
@@ -58,6 +67,7 @@ export class HabitDetailComponent implements OnInit {
     }
 
     popModal() {
+        if (this.punchFlag) return;
         this.showModal = true;
     }
 
@@ -67,19 +77,20 @@ export class HabitDetailComponent implements OnInit {
             return;
         }
         this.apiService.excPunch({
-            user_id: this.userId,
-            habit_id: this.habitId,
+            user_id: parseInt(this.userId, 10),
+            habit_id: parseInt(this.habitId, 10),
             habit_name: this.habitName,
             word: this.punchContent,
             img: 'img',
-            punch_flag: this.habitHistoryList[0] && this.isToday(this.habitHistoryList[0].createTime)
+            punch_flag: this.habitHistoryList[0] && this.isToday(this.habitHistoryList[0].create_time)
         }).subscribe(({ code, msg }) => {
-                if (code === 0) {
-                    this.toast.success('打卡成功啦~', 2000);
-                    this.showModal = false;
-                } else {
-                    this.toast.fail('出错咯,待会再来看看~', 2000);
-                }
-            });
+            if (code === 0) {
+                this.toast.success('打卡成功啦~', 2000);
+                this.showModal = false;
+                this.getHabitHistory();
+            } else {
+                this.toast.fail('出错咯,待会再来看看~', 2000);
+            }
+        });
     }
 }

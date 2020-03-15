@@ -15,11 +15,11 @@
         <ng-container *ngIf="habitHistoryList.length">
             <div *ngFor="let item of habitHistoryList" class="item">
                 <div class="left">
-                    <span>day 1</span><br><br>
-                    <span>3-14 22:00</span>
+                    <span> {{ item.day }}</span><br>
+                    <span>{{ item.time }}</span>
                 </div>
                 <div class="right clearfix">
-                    <span class="word">今天吃奈雪🌶</span>
+                    <span class="word">{{ item.word }}</span>
                     <img src="../../../../assets/img/ya.jpg" alt="">
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <textarea name="punchText" id="" cols="30" rows="10" [(ngModel)]="punchContent"></textarea>
         </div>
         <div class="footer">
-            <div Button [type]="'primary'" (click)="doPunch()">走你</div>
+            <button (click)="doPunch()">走你</button>
         </div>
     </Modal>
 </div>
