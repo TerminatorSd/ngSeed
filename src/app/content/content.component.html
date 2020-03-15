@@ -1,15 +1,15 @@
 <TabBar [hidden]="hidden" [barTintColor]="'white'" [tintColor]="tintColor"
     [activeTab]="selectedIndex" [unselectedTintColor]="unselectedTintColor"
-    [tabBarPosition]="topFlag ? 'top' : 'bottom'" (onPress)="tabBarTabOnPress($event)">
-    <TabBarItem [title]="'Habit'" [key]="1" [badge]="1" [icon]="icon1" [selectedIcon]="icon11">
+    [tabBarPosition]="'bottom'" (onPress)="tabBarTabOnPress($event)">
+    <TabBarItem [title]="'Habit'" [key]="1" [icon]="icon1" [selectedIcon]="icon11">
         <ng-template #icon1>
-            <div
-                style="width:22px;height: 22px;background: url('https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg') center center / 21px 21px no-repeat;">
+            <div class="bar-icon"
+                style="background-image: url('../../../assets/img/habit/habit.svg');">
             </div>
         </ng-template>
         <ng-template #icon11>
-            <div
-                style="width:22px;height: 22px;background: url('https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg') center center / 21px 21px no-repeat;">
+            <div class="bar-icon"
+                style="background-image: url('../../../assets/img/habit/habit-active.svg');">
             </div>
         </ng-template>
         <div style="text-align: center" class="full-height">
@@ -18,13 +18,13 @@
     </TabBarItem>
     <TabBarItem [title]="'Friend'" [key]="3" [dot]="true" [icon]="icon3" [selectedIcon]="icon33">
         <ng-template #icon3>
-            <div
-                style="width:22px;height: 22px;background: url('https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg') center center / 21px 21px no-repeat;">
+            <div class="bar-icon"
+                style="background-image: url('../../../assets/img/habit/circle.svg');">
             </div>
         </ng-template>
         <ng-template #icon33>
-            <div
-                style="width:22px;height: 22px;background: url('https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg') center center / 21px 21px no-repeat;">
+            <div class="bar-icon"
+                style="background-image: url('../../../assets/img/habit/circle-active.svg');">
             </div>
         </ng-template>
         <div style="text-align: center" class="full-height">
@@ -33,13 +33,13 @@
     </TabBarItem>
     <TabBarItem [title]="'My'" [key]="4" [icon]="icon4" [selectedIcon]="icon44">
         <ng-template #icon4>
-            <div
-                style="width:22px;height: 22px;background: url('https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg') center center / 21px 21px no-repeat;">
+            <div class="bar-icon"
+                style="background-image: url('../../../assets/img/habit/mine.svg');">
             </div>
         </ng-template>
         <ng-template #icon44>
-            <div
-                style="width:22px;height: 22px;background: url('https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg') center center / 21px 21px no-repeat;">
+            <div class="bar-icon"
+                style="background-image: url('../../../assets/img/habit/mine-active.svg');">
             </div>
         </ng-template>
         <div style="text-align: center" class="full-height">

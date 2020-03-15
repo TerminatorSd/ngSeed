@@ -7,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
     hidden = false;
-    fullScreen = false;
-    topFlag = false;
-    tintColor = '#108ee9';
+    tintColor = '#47c479';
     unselectedTintColor = '#888';
     selectedIndex = 0;
 
