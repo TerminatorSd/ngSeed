@@ -1,49 +1,45 @@
-<TabBar [hidden]="hidden" [barTintColor]="'white'" [tintColor]="tintColor"
-    [activeTab]="selectedIndex" [unselectedTintColor]="unselectedTintColor"
-    [tabBarPosition]="'bottom'" (onPress)="tabBarTabOnPress($event)">
-    <TabBarItem [title]="'习惯'" [key]="1" [icon]="icon1" [selectedIcon]="icon11">
-        <ng-template #icon1>
-            <div class="bar-icon"
-                style="background-image: url('../../../assets/img/habit/habit.svg');">
+<div class="content">
+    <TabBar [hidden]="hidden" [barTintColor]="'white'" [tintColor]="tintColor" [activeTab]="selectedIndex"
+        [unselectedTintColor]="unselectedTintColor" [tabBarPosition]="'bottom'" (onPress)="tabBarTabOnPress($event)">
+        <TabBarItem [title]="'习惯'" [key]="1" [icon]="icon1" [selectedIcon]="icon11">
+            <ng-template #icon1>
+                <div class="bar-icon" style="background-image: url('../../../assets/img/habit/habit.svg');">
+                </div>
+            </ng-template>
+            <ng-template #icon11>
+                <div class="bar-icon" style="background-image: url('../../../assets/img/habit/habit-active.svg');">
+                </div>
+            </ng-template>
+            <div style="text-align: center" class="full-height">
+                <habit-list></habit-list>
             </div>
-        </ng-template>
-        <ng-template #icon11>
-            <div class="bar-icon"
-                style="background-image: url('../../../assets/img/habit/habit-active.svg');">
+        </TabBarItem>
+        <TabBarItem [title]="'记账'" [key]="3" [icon]="icon3" [selectedIcon]="icon33">
+            <ng-template #icon3>
+                <div class="bar-icon" style="background-image: url('../../../assets/img/habit/account.svg');">
+                </div>
+            </ng-template>
+            <ng-template #icon33>
+                <div class="bar-icon" style="background-image: url('../../../assets/img/habit/account-active.svg');">
+                </div>
+            </ng-template>
+            <div style="text-align: center" class="full-height">
+                <account-list></account-list>
             </div>
-        </ng-template>
-        <div style="text-align: center" class="full-height">
-            <habit-list></habit-list>
-        </div>
-    </TabBarItem>
-    <TabBarItem [title]="'记账'" [key]="3" [icon]="icon3" [selectedIcon]="icon33">
-        <ng-template #icon3>
-            <div class="bar-icon"
-                style="background-image: url('../../../assets/img/habit/account.svg');">
+        </TabBarItem>
+        <TabBarItem [title]="'我的'" [key]="4" [icon]="icon4" [selectedIcon]="icon44">
+            <ng-template #icon4>
+                <div class="bar-icon" style="background-image: url('../../../assets/img/habit/mine.svg');">
+                </div>
+            </ng-template>
+            <ng-template #icon44>
+                <div class="bar-icon" style="background-image: url('../../../assets/img/habit/mine-active.svg');">
+                </div>
+            </ng-template>
+            <div style="text-align: center" class="full-height">
+                <app-mine></app-mine>
             </div>
-        </ng-template>
-        <ng-template #icon33>
-            <div class="bar-icon"
-                style="background-image: url('../../../assets/img/habit/account-active.svg');">
-            </div>
-        </ng-template>
-        <div style="text-align: center" class="full-height">
-            <account-list></account-list>
-        </div>
-    </TabBarItem>
-    <TabBarItem [title]="'我的'" [key]="4" [icon]="icon4" [selectedIcon]="icon44">
-        <ng-template #icon4>
-            <div class="bar-icon"
-                style="background-image: url('../../../assets/img/habit/mine.svg');">
-            </div>
-        </ng-template>
-        <ng-template #icon44>
-            <div class="bar-icon"
-                style="background-image: url('../../../assets/img/habit/mine-active.svg');">
-            </div>
-        </ng-template>
-        <div style="text-align: center" class="full-height">
-            <div style="padding-top: 60px">It is yourselef</div>
-        </div>
-    </TabBarItem>
-</TabBar>
+        </TabBarItem>
+    </TabBar>
+
+</div>

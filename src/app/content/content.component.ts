@@ -24,7 +24,7 @@ export class ContentComponent implements OnInit {
     showNextTabBar(event) {
         event.preventDefault();
         const PANE_COUNT = 4;
-        if (this.selectedIndex == PANE_COUNT - 1) {
+        if (this.selectedIndex === PANE_COUNT - 1) {
             this.selectedIndex = 0;
         } else {
             this.selectedIndex++;
@@ -37,8 +37,9 @@ export class ContentComponent implements OnInit {
     }
 
     tabBarTabOnPress(pressParam: any) {
-        console.log('onPress Params: ', pressParam);
         this.selectedIndex = pressParam.index;
     }
+
+
 
 }

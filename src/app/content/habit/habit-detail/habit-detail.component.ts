@@ -58,7 +58,7 @@ export class HabitDetailComponent implements OnInit {
                         .split(' ')[1].split(':')
                         .filter((ele, index) => index < 2).join(':');
                 });
-                this.punchFlag = data[0] && this.isToday(data[0].create_time);
+                this.punchFlag = this.habitHistoryList[0] && this.isToday(this.habitHistoryList[0].create_time);
                 console.log(this.punchFlag);
             } else {
                 this.toast.fail('获取历史记录出错咯,待会再来看看~', 2000);

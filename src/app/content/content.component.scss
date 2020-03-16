@@ -1,10 +1,14 @@
-.full-height {
-    height: calc(100vh - 50px);
-}
-.bar-icon {
-    width: 24px;
-    height: 24px;
-    background-position: center center;
-    background-size: 26px 26px;
-    background-repeat: no-repeat;
+
+.content {
+
+    .full-height {
+        height: calc(100vh - 50px);
+    }
+    .bar-icon {
+        width: 24px;
+        height: 24px;
+        background-position: center center;
+        background-size: 26px 26px;
+        background-repeat: no-repeat;
+    }
 }
