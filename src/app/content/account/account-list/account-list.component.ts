@@ -20,6 +20,7 @@ export class AccountListComponent implements OnInit {
         'house', 'hz', 'others', 'study', 'travel'];
     showModal = false;
     moneyNum = 0;
+    isIncome = false;
     nowChosenIndex = -1;
 
     constructor(private router: Router, private apiService: ApiService, private toast: ToastService) { }
@@ -31,12 +32,20 @@ export class AccountListComponent implements OnInit {
         }
     }
 
+    seeBill() {
+        this.router.navigate(['/account/bill']);
+    }
+
     addRecord() {
         this.showModal = true;
     }
 
     choseOneImg(index) {
         this.nowChosenIndex = index;
+    }
+
+    toggleIncomeType() {
+        this.isIncome = !this.isIncome;
     }
 
     confirmAdd() {

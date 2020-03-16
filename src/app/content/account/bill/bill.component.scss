@@ -1,0 +1,46 @@
+@import '../../../../var.scss';
+.bill {
+    .top-counts {
+        height: 32vw;
+        background: white;
+        text-align: left;
+        span {
+            display: inline-block;
+            &.label {
+                margin: 4vw 0 0 4vw;
+            }
+            &.value {
+                margin: 4vw 0 0 4vw;
+                font-size: 20px;
+                font-weight: bold;
+                color: red;
+            }
+            &.text {
+                margin: 3vw 4vw;
+            }
+            &.num {
+                font-weight: bold;
+            }
+        }
+    }
+    .bill-list {
+        margin-top: 3vw;
+        .day-item {
+            background: white;
+            border-top: 1px solid $dark-grey;
+            padding: 1vw 4vw;
+            .left-date {
+                width: 25vw;
+            }
+            .right-things {
+                margin-left: 26vw;
+                .bill-item {
+                    padding: 2vw;
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $dark-grey;
+                    }
+                }
+            }
+        }
+    }
+}

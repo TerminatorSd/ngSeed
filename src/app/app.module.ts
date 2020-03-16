@@ -15,6 +15,7 @@ import { ContentComponent } from './content/content.component';
 import { HabitDetailComponent } from './content/habit/habit-detail/habit-detail.component';
 import { AccountListComponent } from './content/account/account-list/account-list.component';
 import { MineComponent } from './content/mine/mine.component';
+import { BillComponent } from './content/account/bill/bill.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MineComponent } from './content/mine/mine.component';
     ContentComponent,
     HabitDetailComponent,
     AccountListComponent,
-    MineComponent
+    MineComponent,
+    BillComponent
   ],
   imports: [
     BrowserModule,

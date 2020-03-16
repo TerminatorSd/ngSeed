@@ -1,0 +1,29 @@
+<div class="bill">
+    <div class="top-counts">
+        <span class="label">账户余额 2020/3</span><br>
+        <span class="value">2346</span><br>
+        <span class="text">收入</span>
+        <span class="num">123</span>
+        <span class="text">支出</span>
+        <span class="num">123</span>
+    </div>
+    <div class="bill-list">
+        <div class="day-item clearfix" *ngFor="let day of billList">
+            <div class="pull-left left-date">
+                {{ day.time }} <br>
+                {{ day.day }}
+            </div>
+            <div class="right-things">
+                <div class="bill-item" *ngFor="let bill of day.list">
+                    {{bill.img}}-{{ bill.type }}-{{ bill.comment }}-{{ bill.money }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 2vw;"></div>
+    <ListItem DatePicker [extra]="currentDateFormat(value, 'yyyy-mm')" [arrow]="'horizontal'" [mode]="'month'"
+        [(ngModel)]="value" (onOk)="onOk($event)">
+        Month
+        <Brief>{{ name }}</Brief>
+    </ListItem>
+</div>

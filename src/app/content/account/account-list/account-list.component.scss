@@ -78,5 +78,24 @@
                 }
             }
         }
+        .footer {
+            position: relative;
+            .type {
+                box-sizing: content-box;
+                width: 12vw;
+                height: 6vw;
+                line-height: 6vw;
+                text-align: center;
+                position: absolute;
+                right: 5vw;
+                border-radius: 1vw;
+                border: .5vw solid $dark-grey;
+                color: $dark-grey;
+                &.active {
+                    border-color: $main-green;
+                    color: $main-green;
+                }
+            }
+        }
     }
 }

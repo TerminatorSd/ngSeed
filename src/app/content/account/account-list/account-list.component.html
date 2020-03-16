@@ -11,8 +11,8 @@
                 {{ item.name }}
             </div>
             <div class="pull-right">
-                <button>账单</button>
-                <button (click)="addRecord()">记一笔</button>
+                <button class="small" (click)="seeBill()">账单</button>
+                <button class="small" (click)="addRecord()">记一笔</button>
             </div>
         </div>
     </div>
@@ -28,6 +28,7 @@
             </ng-container>
         </div>
         <div class="footer">
+            <div class="pull-right type" [ngClass]="{'active': isIncome }" (click)="toggleIncomeType()">{{ isIncome ? '收入' : '支出' }}</div>
             <button (click)="confirmAdd()">走你</button>
         </div>
     </Modal>

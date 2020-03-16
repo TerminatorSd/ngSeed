@@ -6,12 +6,14 @@ import { LoginComponent } from './login/login.component';
 import { HabitListComponent } from './content/habit/habit-list/habit-list.component';
 import { HabitDetailComponent } from './content/habit/habit-detail/habit-detail.component';
 import { ContentComponent } from './content/content.component';
+import { BillComponent } from './content/account/bill/bill.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'content', component: ContentComponent },
   { path: 'habit/detail', component: HabitDetailComponent },
+  { path: 'account/bill', component: BillComponent },
 
 //   { path: 'post/detail/:id', component: PostDetailComponent },
 //   { path: 'reading', component: ReadingComponent },

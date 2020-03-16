@@ -3,6 +3,7 @@
 
 body {
     background-color: #f1f1f1;
+    box-sizing: content-box;
 }
 
 .mt-20 {
@@ -60,4 +61,7 @@ button {
     border: none;
     border-radius: 18px;
     color: white;
+    &.small {
+        padding: 5px 15px;
+    }
 }
