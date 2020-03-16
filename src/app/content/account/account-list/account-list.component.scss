@@ -1,0 +1,82 @@
+@import'../../../../var.scss';
+
+.account-list {
+    .top-counts {
+        height: 30vw;
+        background: white;
+        text-align: left;
+        .label {
+            display: block;
+            padding: 5vw;
+        }
+        .value {
+            padding: 5vw;
+            font-size: 20px;
+            font-weight: bold;
+            color: red;
+        }
+    }
+    .my-account {
+        display: block;
+        height: 8vw;
+        padding-left: 5vw;
+        line-height: 8vw;
+        text-align: left;
+    }
+    .from-list {
+        .item {
+            height: 12vw;
+            background: white;
+            margin-bottom: 2vw;
+            img {
+                width: 6vw;
+                padding: 1vw;
+                margin: 2vw 5vw;
+                box-sizing: content-box;
+                border-radius: 100%;
+                background-color: #f1f1f1;
+            }
+            .account {
+                float: left;
+                line-height: 12vw;
+                font-size: 16px;
+            }
+            .pull-right {
+                line-height: 12vw;
+                padding: 0 5vw;
+                button {
+                    &:first-child {
+                        margin-right: 3vw;
+                    }
+                }
+            }
+        }
+    }
+    .modal {
+        .content textarea {
+            width: 90%;
+            border: 1px solid #e2e2e2;
+            border-radius: 5px;
+            resize: none;
+            padding: 5px 10px;
+            margin: 10px auto;
+        }
+        ::ng-deep .am-modal-transparent {
+            width: 80% !important;
+        }
+        .img-wrapper {
+            margin: 2vw 0;
+            img {
+                width: 6vw;
+                margin: 1vw 2vw;
+                padding: 2vw;
+                box-sizing: content-box;
+                border-radius: 100%;
+                background-color: #f1f1f1;
+                &.chosen {
+                    background: $main-green;
+                }
+            }
+        }
+    }
+}

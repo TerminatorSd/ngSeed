@@ -42,7 +42,10 @@
                 height: 16vw;
                 margin: 2vw;
                 text-align: center;
-                border-right: 1px solid grey;
+                border-right: 1px solid #f1f1f1;
+                span {
+                    line-height: 8vw;
+                }
             }
             .right {
                 margin-left: 20vw;
@@ -53,6 +56,13 @@
                     height: 16vw;
                     margin: 2vw;
                     border-radius: 1vw;
+                }
+                .word {
+                    width: 52vw;
+                    height: 18vw;
+                    margin-top: 1vw;
+                    display: inline-block;
+                    overflow: auto;
                 }
             }
         }

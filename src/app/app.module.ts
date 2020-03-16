@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { HabitListComponent } from './content/habit/habit-list/habit-list.component';
 import { ContentComponent } from './content/content.component';
 import { HabitDetailComponent } from './content/habit/habit-detail/habit-detail.component';
+import { AccountListComponent } from './content/account/account-list/account-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HabitDetailComponent } from './content/habit/habit-detail/habit-detail.
     LoginComponent,
     HabitListComponent,
     ContentComponent,
-    HabitDetailComponent
+    HabitDetailComponent,
+    AccountListComponent
   ],
   imports: [
     BrowserModule,

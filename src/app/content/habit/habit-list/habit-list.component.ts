@@ -18,7 +18,7 @@ export class HabitListComponent implements OnInit {
     habitId = '';
     newHabitName = '';
     showModal = false;
-    habitImgList = ['ao', 'book', 'code', 'dance', 'english', 'happy', 'mask', 'money', 'music', 'planet',
+    habitImgList = ['ao', 'book', 'coding', 'dance', 'english', 'happy', 'mask', 'accounting', 'music', 'planet',
         'reading', 'skates', 'sun', 'water', 'veg', 'earth', 'yoga', 'yumao', 'zaoqi', 'zaoshui'];
     nowChosenIndex = -1;
 
@@ -57,13 +57,15 @@ export class HabitListComponent implements OnInit {
             this.toast.offline('填点啥呗~_~!', 1000);
             return;
         }
-        this.apiService.excLogin({
-            user_id: this.userId,
+        this.apiService.addHabit({
+            user_id: parseInt(this.userId, 10),
             habit_name: this.newHabitName,
             img: this.habitImgList[this.nowChosenIndex]
         }).subscribe(({ code, msg }) => {
             if (code === 0) {
-
+                this.toast.success('添加成功🌶~', 2000);
+                this.showModal = false;
+                this.getHabitList();
             } else {
                 this.toast.fail('后台接口还没好哟,待会再来看看~', 2000);
             }

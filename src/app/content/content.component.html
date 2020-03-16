@@ -1,7 +1,7 @@
 <TabBar [hidden]="hidden" [barTintColor]="'white'" [tintColor]="tintColor"
     [activeTab]="selectedIndex" [unselectedTintColor]="unselectedTintColor"
     [tabBarPosition]="'bottom'" (onPress)="tabBarTabOnPress($event)">
-    <TabBarItem [title]="'Habit'" [key]="1" [icon]="icon1" [selectedIcon]="icon11">
+    <TabBarItem [title]="'习惯'" [key]="1" [icon]="icon1" [selectedIcon]="icon11">
         <ng-template #icon1>
             <div class="bar-icon"
                 style="background-image: url('../../../assets/img/habit/habit.svg');">
@@ -16,22 +16,22 @@
             <habit-list></habit-list>
         </div>
     </TabBarItem>
-    <TabBarItem [title]="'Friend'" [key]="3" [dot]="true" [icon]="icon3" [selectedIcon]="icon33">
+    <TabBarItem [title]="'记账'" [key]="3" [icon]="icon3" [selectedIcon]="icon33">
         <ng-template #icon3>
             <div class="bar-icon"
-                style="background-image: url('../../../assets/img/habit/circle.svg');">
+                style="background-image: url('../../../assets/img/habit/account.svg');">
             </div>
         </ng-template>
         <ng-template #icon33>
             <div class="bar-icon"
-                style="background-image: url('../../../assets/img/habit/circle-active.svg');">
+                style="background-image: url('../../../assets/img/habit/account-active.svg');">
             </div>
         </ng-template>
         <div style="text-align: center" class="full-height">
-            <div style="padding-top: 60px">Hello My Friend</div>
+            <account-list></account-list>
         </div>
     </TabBarItem>
-    <TabBarItem [title]="'My'" [key]="4" [icon]="icon4" [selectedIcon]="icon44">
+    <TabBarItem [title]="'我的'" [key]="4" [icon]="icon4" [selectedIcon]="icon44">
         <ng-template #icon4>
             <div class="bar-icon"
                 style="background-image: url('../../../assets/img/habit/mine.svg');">

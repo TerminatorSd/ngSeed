@@ -9,7 +9,7 @@ export class ContentComponent implements OnInit {
     hidden = false;
     tintColor = '#47c479';
     unselectedTintColor = '#888';
-    selectedIndex = 0;
+    selectedIndex = 1;
 
     constructor() { }
 
