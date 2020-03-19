@@ -67,7 +67,9 @@ export class HabitDetailComponent implements OnInit {
     }
 
     popModal() {
-        if (this.punchFlag) return;
+        if (this.punchFlag) {
+            this.punchContent = this.habitHistoryList[0].word;
+        }
         this.showModal = true;
     }
 
