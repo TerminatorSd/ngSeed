@@ -2,6 +2,7 @@
 
 .habit-list {
     overflow: hidden;
+    transform: none;
     .card {
         width: 94%;
         margin: 15px auto;
@@ -28,6 +29,7 @@
         position: fixed;
         bottom: 12px;
         left: calc(50vw - 50px);
+        box-shadow: 0 72px 83px rgba(0,0,0,0.30), 0 4px 6px rgba(0,0,0,0.22);
     }
     .modal {
         .content textarea {
