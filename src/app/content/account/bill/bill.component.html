@@ -1,13 +1,21 @@
 <div class="bill">
     <div class="top-counts">
         <span class="label">账户余额 2020/3</span><br>
-        <span class="value">2346</span><br>
+        <span class="value">{{ billSum?.rest }}</span><br>
         <span class="text">收入</span>
-        <span class="num">123</span>
+        <span class="num">{{ billSum?.income }}</span>
         <span class="text">支出</span>
-        <span class="num">123</span>
+        <span class="num">{{ billSum?.pay }}</span>
     </div>
     <div class="bill-list">
+        <div class="day-item clearfix" *ngFor="let item of billList">
+            <div class="right-things">
+                {{item.creat_time }}<br><br>
+                {{ item.label_name }}-{{ item.comment }}-{{ item.money }}
+            </div>
+        </div>
+    </div>
+    <!-- <div class="bill-list">
         <div class="day-item clearfix" *ngFor="let day of billList">
             <div class="pull-left left-date">
                 {{ day.time }} <br>
@@ -19,11 +27,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div style="margin-top: 2vw;"></div>
-    <ListItem DatePicker [extra]="currentDateFormat(value, 'yyyy-mm')" [arrow]="'horizontal'" [mode]="'month'"
+    <!-- <ListItem DatePicker [extra]="currentDateFormat(value, 'yyyy-mm')" [arrow]="'horizontal'" [mode]="'month'"
         [(ngModel)]="value" (onOk)="onOk($event)">
         Month
         <Brief>{{ name }}</Brief>
-    </ListItem>
+    </ListItem> -->
 </div>

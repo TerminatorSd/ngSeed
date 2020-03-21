@@ -13,7 +13,8 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class ApiService {
 
-    private domain = 'http://39.108.163.91:8080';  // URL to web api
+    // private domain = 'http://39.108.163.91:8080';  // URL to web api
+    private domain = 'http://192.168.1.101:8080';  // URL to aogo api
     // private domain = 'http://172.20.10.6:8080';  // URL to web api
 
 
@@ -70,6 +71,31 @@ export class ApiService {
             catchError(this.handleError('add new habit', []))
         );
     }
+
+    getBillLabel(): Observable<any> {
+        return this.http.get<any>(`${this.domain}/bill/label`, httpOptions)
+        .pipe(
+            // tap(res => this.log('fetched list')),
+            catchError(this.handleError('get bill label', []))
+        );
+    }
+
+    fetchBillList(params): Observable<any> {
+        return this.http.get<any>(`${this.domain}/bill/item?${this.getQueryString(params)}`, httpOptions)
+        .pipe(
+            // tap(res => this.log('fetched list')),
+            catchError(this.handleError('getHabitList', []))
+        );
+    }
+
+    addBill(params): Observable<any> {
+        return this.http.post<any>(`${this.domain}/bill/add`, params, httpOptions)
+        .pipe(
+            // tap(res => this.log('fetched list')),
+            catchError(this.handleError('add new bill', []))
+        );
+    }
+
 
     // addHero (hero: Hero): Observable<any> {
     //   return this.http.post<any>(this.heroesUrl, hero, httpOptions).pipe(
