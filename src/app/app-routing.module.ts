@@ -7,13 +7,14 @@ import { HabitListComponent } from './content/habit/habit-list/habit-list.compon
 import { HabitDetailComponent } from './content/habit/habit-detail/habit-detail.component';
 import { ContentComponent } from './content/content.component';
 import { BillComponent } from './content/account/bill/bill.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'content', component: ContentComponent },
-  { path: 'habit/detail', component: HabitDetailComponent },
-  { path: 'account/bill', component: BillComponent },
+  { path: 'content', component: ContentComponent, canActivate: [AuthGuard] },
+  { path: 'habit/detail', component: HabitDetailComponent, canActivate: [AuthGuard] },
+  { path: 'account/bill', component: BillComponent, canActivate: [AuthGuard] },
 
 //   { path: 'post/detail/:id', component: PostDetailComponent },
 //   { path: 'reading', component: ReadingComponent },

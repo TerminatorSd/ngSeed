@@ -26,9 +26,9 @@ export class HabitListComponent implements OnInit {
 
     ngOnInit() {
         this.userId = localStorage.getItem('userId');
-        if (!this.userId) {
-            this.router.navigate(['/login']);
-        }
+        // if (!this.userId) {
+        //     this.router.navigate(['/login']);
+        // }
         this.getHabitList();
     }
 
