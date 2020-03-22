@@ -9,10 +9,23 @@
     </div>
     <div class="bill-list">
         <div class="day-item clearfix" *ngFor="let item of billList">
-            <div class="right-things">
-                {{item.creat_time }}<br><br>
-                {{ item.label_name }}-{{ item.comment }}-{{ item.money }}
+            <div class="pull-left left-date">
+                {{ item.time }} <br>
+                {{ item.day }}
             </div>
+            <img [src]="item.label_img" alt="">
+            <div class="pull-left label">
+                {{ item.label_name }} <br>
+                <span class="grey-font">{{ item.comment }}</span>
+            </div>
+            <div class="money">
+                <span [ngClass]="{'grey-font': item.type === 0, 'success-font': item.type === 1}">{{ item.type === 0 ? '支出' : '收入'}}</span>
+                 {{ item.money }} 元
+            </div>
+        </div>
+        <div class="no-data" *ngIf="!billList.length">
+            <img src="../../../../assets/img/habit/no-data-yo.svg" alt=""><br>
+            <span>还没数据啦~</span>
         </div>
     </div>
     <!-- <div class="bill-list">

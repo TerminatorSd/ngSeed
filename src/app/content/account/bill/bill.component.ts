@@ -18,9 +18,8 @@ export class BillComponent implements OnInit {
         pay: number;
     };
     billList: {
-        time: string;
-        day: string;
-        list: { type: string; img: string; comment: string; money: number; income: boolean }[];
+        label_id: number, label_name: string, comment: string, label_img: string, money: number,
+        account_name: string, account_id: number, type: boolean, create_time: string; time?: string; day?: string;
     }[];
 
     name2 = '选择';
@@ -54,26 +53,10 @@ export class BillComponent implements OnInit {
             this.accountName = name;
             this.getBillList();
         });
-        this.billList = [
-            {
-                time: '2020-3-16',
-                day: '周一',
-                list: [
-                    { type: '交通', img: 'traffic', comment: '坐公交', money: 6, income: false },
-                    { type: '吃饭', img: 'eat', comment: '牛肉饭', money: 25, income: false }
-                ]
-            },
-            {
-                time: '2020-3-13',
-                day: '周五',
-                list: [
-                    { type: '交通', img: 'traffic', comment: '坐公交', money: 6, income: false }
-                ]
-            }
-        ];
     }
 
     getBillList() {
+        const tempDay = ["日", "一", "二", "三", "四", "五", "六"];
         this.apiService.fetchBillList({
             user_id: parseInt(this.userId, 10),
             date: '2020-03',
@@ -84,7 +67,11 @@ export class BillComponent implements OnInit {
                 const { rest, income, pay, item_list } = data;
                 this.billSum = { rest, income, pay };
                 this.billList = item_list;
-                // this.billList.forEach(item => item.create_time)
+                this.billList.forEach(item => {
+                    const tempTime = new Date(item.create_time);
+                    item.time = `${tempTime.getMonth() + 1}-${tempTime.getDate()}`;
+                    item.day = `周${tempDay[tempTime.getDay()]}`;
+                });
             } else {
                 this.toast.fail('获取历史记录出错咯,待会再来看看~', 2000);
             }

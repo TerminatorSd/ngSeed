@@ -81,11 +81,13 @@ export class AccountListComponent implements OnInit {
             account_name: this.accountName,
             money: this.moneyNum,
             label_id: this.labelList[this.nowChosenIndex].id,
+            label_img: this.labelList[this.nowChosenIndex].img,
             label_name: this.chosenLabelName,
             comment: this.comment
         }).subscribe(({ code, msg }) => {
             if (code === 0) {
-
+                this.toast.success('有多辣一笔~', 2000);
+                this.showModal = false;
             } else {
                 this.toast.fail('后台接口还没好哟,待会再来看看~', 2000);
             }

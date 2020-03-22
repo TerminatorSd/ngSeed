@@ -29,17 +29,26 @@
             background: white;
             border-top: 1px solid $dark-grey;
             padding: 1vw 4vw;
+            height: 12vw;
             .left-date {
-                width: 25vw;
+                width: 20vw;
+                line-height: 6vw;
             }
-            .right-things {
-                margin-left: 26vw;
-                .bill-item {
-                    padding: 2vw;
-                    &:not(:last-child) {
-                        border-bottom: 1px solid $dark-grey;
-                    }
-                }
+            img {
+                float: left;
+                width: 8vw;
+                height: 8vw;
+                margin-top: 2vw;
+                border: 1px solid grey;
+                border-radius: 100%;
+            }
+            .label {
+                margin-left: 3vw;
+                line-height: 6vw;
+            }
+            .money {
+                float: right;
+                line-height: 12vw;
             }
         }
     }

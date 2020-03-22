@@ -26,7 +26,8 @@
         </ng-container>
 
         <div class="no-data" *ngIf="!habitHistoryList.length">
-            <img src="../../../../assets/img/habit/no-data-yo.svg" alt="">
+            <img src="../../../../assets/img/habit/no-data-yo.svg" alt=""><br>
+            <span>还没数据啦~</span>
         </div>
     </div>
     <Modal [(ngModel)]="showModal" [transparent]="true" [title]="'来打卡啦老妹儿'" class="modal">
