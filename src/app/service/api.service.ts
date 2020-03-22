@@ -13,8 +13,8 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class ApiService {
 
-    // private domain = 'http://39.108.163.91:8080';  // URL to web api
-    private domain = 'http://192.168.1.101:8080';  // URL to aogo api
+    private domain = 'http://39.108.163.91:8080';  // URL to web api
+    // private domain = 'http://192.168.1.101:8080';  // URL to aogo api
     // private domain = 'http://172.20.10.6:8080';  // URL to web api
 
 

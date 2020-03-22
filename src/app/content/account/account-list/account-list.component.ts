@@ -24,8 +24,6 @@ export class AccountListComponent implements OnInit {
         img: string;
     }[];
     chosenLabelName: string;
-    habitImgList = ['traffic', 'daily', 'fun', 'eat', 'health',
-        'house', 'hz', 'others', 'study', 'travel'];
     showModal = false;
     moneyNum = 0;
     comment: string;
