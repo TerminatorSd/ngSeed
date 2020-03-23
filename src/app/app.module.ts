@@ -16,6 +16,7 @@ import { HabitDetailComponent } from './content/habit/habit-detail/habit-detail.
 import { AccountListComponent } from './content/account/account-list/account-list.component';
 import { MineComponent } from './content/mine/mine.component';
 import { BillComponent } from './content/account/bill/bill.component';
+import { PieChartComponent } from './content/account/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BillComponent } from './content/account/bill/bill.component';
     HabitDetailComponent,
     AccountListComponent,
     MineComponent,
-    BillComponent
+    BillComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,7 @@ import { BillComponent } from './content/account/bill/bill.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgZorroAntdMobileModule
+    NgZorroAntdMobileModule,
   ],
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy }

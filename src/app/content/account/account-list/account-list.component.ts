@@ -54,6 +54,10 @@ export class AccountListComponent implements OnInit {
         this.router.navigate(['/account/bill'], { queryParams: { id, name } });
     }
 
+    seePieChart() {
+        this.router.navigate(['/account/pie']);
+    }
+
     addRecord(id, name) {
         this.showModal = true;
         this.accountId = id;

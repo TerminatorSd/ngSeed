@@ -22,9 +22,9 @@ export class HabitDetailComponent implements OnInit {
 
     ngOnInit() {
         this.userId = localStorage.getItem('userId');
-        if (!this.userId) {
-            this.router.navigate(['/login']);
-        }
+        // if (!this.userId) {
+        //     this.router.navigate(['/login']);
+        // }
         this.route.queryParams.subscribe(({ id, name }) => {
             this.habitId = id;
             this.habitName = name;

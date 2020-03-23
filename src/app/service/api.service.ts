@@ -96,6 +96,14 @@ export class ApiService {
         );
     }
 
+    fetchPieData(params): Observable<any> {
+        return this.http.get<any>(`${this.domain}/bill/pie?${this.getQueryString(params)}`, httpOptions)
+        .pipe(
+            // tap(res => this.log('fetched list')),
+            catchError(this.handleError('get bill pie data', []))
+        );
+    }
+
 
     // addHero (hero: Hero): Observable<any> {
     //   return this.http.post<any>(this.heroesUrl, hero, httpOptions).pipe(

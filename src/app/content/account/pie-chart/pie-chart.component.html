@@ -1,0 +1,20 @@
+<div class="pie-chart">
+    <Tabs
+      [page]="3"
+      [useOnPan]="true"
+      [swipeable]="true"
+      [activeTab]="index"
+      [tabBarActiveTextColor]="'#1890ff'"
+      (onChange)="onChange($event)"
+      (onTabClick)="onTabClick($event)"
+    >
+      <TabPane title="账户">
+      </TabPane>
+      <TabPane title="类别">
+      </TabPane>
+      <TabPane title="标签">
+      </TabPane>
+    </Tabs>
+
+    <div id="pieChart" class="chart"></div>
+</div>
