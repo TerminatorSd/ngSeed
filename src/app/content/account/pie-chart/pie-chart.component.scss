@@ -1,4 +1,20 @@
+@import '../../../../var.scss';
+
 .pie-chart {
+    .pay-text {
+        position: absolute;
+        left: 5vw;
+        top: 16vw;
+        color: $grey-font;
+        &.active {
+            color: $main-green;
+        }
+    }
+    .switch {
+        position: absolute;
+        right: 5vw;
+        top: 15vw;
+    }
     .chart {
         width: 60vw;
         height: 60vw;

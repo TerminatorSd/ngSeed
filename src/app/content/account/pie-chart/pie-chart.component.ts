@@ -14,6 +14,9 @@ export class PieChartComponent implements OnInit {
 
     userId: string;
     echartIns: any;
+    payType: number;
+    searchType = 1;
+
     constructor(private router: Router, private apiService: ApiService, private toast: ToastService) { }
 
     ngOnInit() {
@@ -26,8 +29,8 @@ export class PieChartComponent implements OnInit {
         this.apiService.fetchPieData({
             user_id: parseInt(this.userId, 10),
             date: '2020-03',
-            search_type: 0,
-            pay: 1
+            search_type: this.searchType,
+            pay: this.payType
         }).subscribe(({ code, msg, data }) => {
             if (code === 0) {
                 this.echartIns.setOption({
@@ -43,22 +46,18 @@ export class PieChartComponent implements OnInit {
     }
 
     flag = true;
-    index = 1;
 
     onChange(item) {
-        console.log('onChange', item);
+        this.searchType = item.index;
+        this.getPieChartData();
     }
 
-    onTabClick(item) {
-        console.log('onTabClick', item);
+    changePay(pay) {
+        this.payType = pay ? 1 : 0;
+        this.getPieChartData()
     }
 
     selectCard(e) {
         console.log(' ', JSON.stringify(e));
     }
-
-    changeIndex() {
-        this.index = 0;
-    }
-
 }
