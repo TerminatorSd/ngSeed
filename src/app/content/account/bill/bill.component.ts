@@ -20,7 +20,7 @@ export class BillComponent implements OnInit {
     billList: {
         label_id: number, label_name: string, comment: string, label_img: string, money: number,
         account_name: string, account_id: number, type: boolean, create_time: string; time?: string; day?: string;
-    }[];
+    }[] = [];
 
     name2 = '选择';
     value2 = [];
@@ -66,7 +66,7 @@ export class BillComponent implements OnInit {
             if (code === 0) {
                 const { rest, income, pay, item_list } = data;
                 this.billSum = { rest, income, pay };
-                this.billList = item_list;
+                this.billList = item_list || [];
                 this.billList.forEach(item => {
                     const tempTime = new Date(item.create_time);
                     item.time = `${tempTime.getMonth() + 1}-${tempTime.getDate()}`;

@@ -36,10 +36,11 @@
             }
             img {
                 float: left;
-                width: 8vw;
-                height: 8vw;
-                margin-top: 2vw;
-                border: 1px solid grey;
+                width: 6vw;
+                height: 6vw;
+                margin-top: 1vw;
+                padding: 2vw;
+                background-color: $light-grey;
                 border-radius: 100%;
             }
             .label {
