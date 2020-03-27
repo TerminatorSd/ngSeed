@@ -20,7 +20,9 @@ body {
 .ml-15 {
     margin-left: 15px;
 }
-
+.ml-10 {
+    margin-left: 10px;
+}
 .align-center {
     text-align: center;
 }
@@ -71,6 +73,9 @@ button {
     color: white;
     &.small {
         padding: 5px 15px;
+    }
+    &.btn-danger {
+        background: $danger-red;
     }
 }
 

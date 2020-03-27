@@ -45,7 +45,7 @@ export class AccountListComponent implements OnInit {
             if (code === 0) {
                 this.labelList = data;
             } else {
-                this.toast.fail('后台接口还没好哟,待会再来看看~', 2000);
+                this.toast.fail('接口异常啦,待会再来看看~', 2000);
             }
         });
     }
@@ -93,7 +93,7 @@ export class AccountListComponent implements OnInit {
                 this.toast.success('有多辣一笔~', 2000);
                 this.showModal = false;
             } else {
-                this.toast.fail('后台接口还没好哟,待会再来看看~', 2000);
+                this.toast.fail('接口异常啦,待会再来看看~', 2000);
             }
         });
     }

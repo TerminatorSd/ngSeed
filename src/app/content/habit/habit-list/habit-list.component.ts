@@ -67,7 +67,7 @@ export class HabitListComponent implements OnInit {
                 this.showModal = false;
                 this.getHabitList();
             } else {
-                this.toast.fail('后台接口还没好哟,待会再来看看~', 2000);
+                this.toast.fail('接口异常啦,待会再来看看~', 2000);
             }
         });
     }

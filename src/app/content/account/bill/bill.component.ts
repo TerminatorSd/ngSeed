@@ -27,6 +27,19 @@ export class BillComponent implements OnInit {
     // value = [];
     name = '选择';
     value = new Date(2019, 4);
+    // 编辑或删除单条记录
+    labelList: {
+        id: number;
+        name: string;
+        img: string;
+    }[];
+    chosenLabelName: string;
+    showModal = false;
+    moneyNum = 0;
+    comment: string;
+    isIncome = false;
+    nowChosenIndex = -1;
+    sampleId: number;
 
     constructor(private route: ActivatedRoute, private apiService: ApiService, private toast: ToastService) { }
 
@@ -49,7 +62,7 @@ export class BillComponent implements OnInit {
     ngOnInit() {
         this.userId = localStorage.getItem('userId');
         this.route.queryParams.subscribe(({ id, name }) => {
-            this.accountId = id;
+            this.accountId = parseInt(id, 10);
             this.accountName = name;
             this.getBillList();
         });
@@ -76,6 +89,84 @@ export class BillComponent implements OnInit {
                 this.toast.fail('获取历史记录出错咯,待会再来看看~', 2000);
             }
         });
+    }
+
+    getBillLabel(item) {
+        this.apiService.getBillLabel().subscribe(({ code, msg, data }) => {
+            if (code === 0) {
+                this.labelList = data;
+                // 编辑前填充已有的内容
+                const { sample_id, label_id, label_name, money, type, create_time, comment } = item;
+                this.moneyNum = money;
+                this.comment = comment;
+                this.chosenLabelName = label_name;
+                this.sampleId = sample_id;
+                this.isIncome = type ? true : false;
+                this.labelList.forEach((ele, index) => {
+                    if (ele.id === label_id) {
+                        this.nowChosenIndex = index;
+                    }
+                });
+            } else {
+                this.toast.fail('get bill label接口还没好哟,待会再来看看~', 2000);
+            }
+        });
+    }
+
+    showEditModal(item) {
+        this.showModal = true;
+        this.getBillLabel(item);
+    }
+
+    confirmUpdate() {
+        if (!this.moneyNum || this.nowChosenIndex < 0) {
+            this.toast.offline('填点啥呗~_~!', 1000);
+            return;
+        }
+        this.apiService.updateBill({
+            user_id: parseInt(this.userId, 10),
+            sample_id: this.sampleId,
+            type: this.isIncome ? 1 : 0,
+            account_id: this.accountId,
+            account_name: this.accountName,
+            money: this.moneyNum,
+            label_id: this.labelList[this.nowChosenIndex].id,
+            label_img: this.labelList[this.nowChosenIndex].img,
+            label_name: this.chosenLabelName,
+            comment: this.comment
+        }).subscribe(({ code, msg }) => {
+            if (code === 0) {
+                this.toast.success('更新成功~', 2000);
+                this.showModal = false;
+                this.getBillList();
+            } else {
+                this.toast.fail('接口异常啦,待会再来看看~', 2000);
+            }
+        });
+    }
+
+    confirmDel() {
+        this.apiService.deleteBill({
+            user_id: parseInt(this.userId, 10),
+            sample_id: this.sampleId
+        }).subscribe(({ code, msg }) => {
+            if (code === 0) {
+                this.toast.success('删除成功~', 2000);
+                this.showModal = false;
+                this.getBillList();
+            } else {
+                this.toast.fail('接口异常啦,待会再来看看~', 2000);
+            }
+        });
+    }
+
+    choseOneImg(index) {
+        this.nowChosenIndex = index;
+        this.chosenLabelName = this.labelList[index].name;
+    }
+
+    toggleIncomeType() {
+        this.isIncome = !this.isIncome;
     }
 
 }

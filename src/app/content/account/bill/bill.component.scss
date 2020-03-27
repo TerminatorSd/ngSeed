@@ -53,4 +53,53 @@
             }
         }
     }
+    .modal {
+        .content input {
+            box-sizing: border-box !important;
+        }
+        ::ng-deep .am-modal-transparent {
+            width: 80% !important;
+        }
+        .img-wrapper {
+            margin: 2vw 0;
+            height: 50vw;
+            overflow: auto;
+            img {
+                width: 6vw;
+                margin: 1vw 2vw;
+                padding: 2vw;
+                box-sizing: content-box;
+                border-radius: 100%;
+                background-color: #f1f1f1;
+                &.chosen {
+                    background: $main-green;
+                }
+            }
+        }
+        .footer {
+            position: relative;
+            .chosen-label {
+                position: absolute;
+                left: 2vw;
+                top: 5px;
+            }
+            .type {
+                box-sizing: content-box;
+                width: 12vw;
+                height: 6vw;
+                line-height: 6vw;
+                text-align: center;
+                position: absolute;
+                top: 1vw;
+                right: 2vw;
+                border-radius: 1vw;
+                border: 0.5vw solid $dark-grey;
+                color: $dark-grey;
+                &.active {
+                    border-color: $main-green;
+                    color: $main-green;
+                }
+            }
+        }
+    }
 }

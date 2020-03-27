@@ -96,6 +96,23 @@ export class ApiService {
         );
     }
 
+    updateBill(params): Observable<any> {
+        return this.http.post<any>(`${this.domain}/bill/item/update`, params, httpOptions)
+        .pipe(
+            // tap(res => this.log('fetched list')),
+            catchError(this.handleError('update one bill', []))
+        );
+    }
+
+
+    deleteBill(params): Observable<any> {
+        return this.http.post<any>(`${this.domain}/bill/item/delete`, params, httpOptions)
+        .pipe(
+            // tap(res => this.log('fetched list')),
+            catchError(this.handleError('delete one bill', []))
+        );
+    }
+
     fetchPieData(params): Observable<any> {
         return this.http.get<any>(`${this.domain}/bill/pie?${this.getQueryString(params)}`, httpOptions)
         .pipe(
