@@ -66,13 +66,13 @@ input {
 }
 
 button {
-    padding: 8px 20px;
+    padding: 5px 15px;
     background: $main-green;
     border: none;
     border-radius: 18px;
     color: white;
-    &.small {
-        padding: 5px 15px;
+    &.medium {
+        padding: 8px 20px;
     }
     &.btn-danger {
         background: $danger-red;
