@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router'
 export class HabitDetailComponent implements OnInit {
     habitId = '';
     habitName = '';
-    habitHistoryList: { word: string; img: string; create_time: string; day: string; time: string; }[] = [];
+    habitHistoryList: { word: string; img: string; create_time: string; day: string; date: string; time: string; }[] = [];
     punchContent = '';
     showModal = false;
     userId: string;
@@ -51,7 +51,7 @@ export class HabitDetailComponent implements OnInit {
             if (code === 0) {
                 this.habitHistoryList = data || [];
                 this.habitHistoryList.forEach(item => {
-                    item.day = item.create_time
+                    item.date = item.create_time
                         .split(' ')[0].split('-')
                         .filter((ele, index) => index > 0).join('-');
                     item.time = item.create_time

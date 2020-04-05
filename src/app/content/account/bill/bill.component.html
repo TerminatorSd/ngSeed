@@ -1,4 +1,16 @@
 <div class="bill">
+    <div class="flex-around">
+        <div class="date-picker flex-1">
+            <ListItem DatePicker [extra]="currentDateFormat(chosenMonth, 'yyyy-mm')" [arrow]="'horizontal'"
+                [mode]="'month'" [(ngModel)]="chosenMonth" (onOk)="getBillList()">
+            </ListItem>
+        </div>
+        <div class="flex-1">
+            <ListItem Picker [extra]="chosenAccount" [arrow]="'horizontal'" [data]="accountList"
+                [(ngModel)]="chosenAccountArr" (ngModelChange)="getBillList()">
+            </ListItem>
+        </div>
+    </div>
     <div class="top-counts">
         <span class="label">账户余额 2020/3</span><br>
         <span class="value">{{ billSum?.rest }}</span><br>
@@ -7,6 +19,7 @@
         <span class="text">支出</span>
         <span class="num">{{ billSum?.pay }}</span>
     </div>
+
     <div class="bill-list">
         <div class="day-item clearfix" *ngFor="let item of billList" (click)="showEditModal(item)">
             <div class="pull-left left-date">
@@ -19,8 +32,9 @@
                 <span class="grey-font">{{ item.comment }}</span>
             </div>
             <div class="money">
-                <span [ngClass]="{'grey-font': item.type === 0, 'success-font': item.type === 1}">{{ item.type === 0 ? '支出' : '收入'}}</span>
-                 {{ item.money }} 元
+                <span
+                    [ngClass]="{'grey-font': item.type === 0, 'success-font': item.type === 1}">{{ item.type === 0 ? '支出' : '收入'}}</span>
+                {{ item.money }} 元
             </div>
         </div>
         <div class="no-data" *ngIf="!billList.length">
@@ -42,11 +56,7 @@
         </div>
     </div> -->
     <div style="margin-top: 2vw;"></div>
-    <!-- <ListItem DatePicker [extra]="currentDateFormat(value, 'yyyy-mm')" [arrow]="'horizontal'" [mode]="'month'"
-        [(ngModel)]="value" (onOk)="onOk($event)">
-        Month
-        <Brief>{{ name }}</Brief>
-    </ListItem> -->
+
     <Modal [(ngModel)]="showModal" [transparent]="true" [title]="'记它一笔'" class="modal">
         <div class="content">
             <input type="number" name="moneyNum" placeholder="输入金额" [(ngModel)]="moneyNum">
@@ -61,7 +71,8 @@
         </div>
         <div class="footer">
             <div class="chosen-label">{{ chosenLabelName }}</div>
-            <div class="type" [ngClass]="{'active': isIncome }" (click)="toggleIncomeType()">{{ isIncome ? '收入' : '支出' }}</div>
+            <div class="type" [ngClass]="{'active': isIncome }" (click)="toggleIncomeType()">
+                {{ isIncome ? '收入' : '支出' }}</div>
             <button (click)="confirmUpdate()" class="small">更新</button>
             <button (click)="confirmDel()" class="ml-10 small btn-danger">删除</button>
         </div>

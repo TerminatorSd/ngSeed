@@ -11,7 +11,6 @@ import { ToastService } from 'ng-zorro-antd-mobile';
 export class BillComponent implements OnInit {
     userId: string;
     accountId: number;
-    accountName: string;
     billSum: {
         rest: number;
         income: number;
@@ -26,7 +25,15 @@ export class BillComponent implements OnInit {
     value2 = [];
     // value = [];
     name = '选择';
-    value = new Date(2019, 4);
+    chosenMonth = new Date(new Date().getFullYear(), new Date().getMonth());
+    // account select
+    value3 = [];
+    accountList = [
+        '微信', '支付宝', '银行卡', '所有'
+        // {id: 1, name: '微信'}
+    ];
+    chosenAccount: string;
+    chosenAccountArr: string[];
     // 编辑或删除单条记录
     labelList: {
         id: number;
@@ -54,28 +61,47 @@ export class BillComponent implements OnInit {
             .replace('ss', pad(date.getSeconds()));
     }
 
-    onOk(result: Date) {
-        this.name = this.currentDateFormat(result);
-        this.value = result;
-    }
-
     ngOnInit() {
+        // setTimeout(() => {
+        //     var datePickerDom = document.getElementsByClassName('date-picker')[0];
+        //     // console.log(document.querySelector('.date-picker'))
+        //     // document.querySelector('.date-picker').click();
+        //     datePickerDom.click();
+        // }, 3000)
+        // console.log(this.datePicker.nativeElement);
+        // this.datePicker.onClick();
         this.userId = localStorage.getItem('userId');
         this.route.queryParams.subscribe(({ id, name }) => {
             this.accountId = parseInt(id, 10);
-            this.accountName = name;
+            this.chosenAccountArr = [name];
             this.getBillList();
         });
     }
 
     getBillList() {
+        // 获取当前选中的月份
+        const year = this.chosenMonth.getFullYear();
+        const month = this.chosenMonth.getMonth() + 1;
+        const monthStr = month < 10 ? `0${month}` : month;
         const tempDay = ["日", "一", "二", "三", "四", "五", "六"];
-        this.apiService.fetchBillList({
+        // send params
+        const params = {
             user_id: parseInt(this.userId, 10),
-            date: '2020-03',
-            account_id: this.accountId,
-            account_name: this.accountName
-        }).subscribe(({ code, msg, data }) => {
+            date: `${year}-${monthStr}`,
+        };
+        const idFromAccountName = {
+            微信: 1,
+            支付宝: 2,
+            银行卡: 3
+        };
+        this.chosenAccount = this.chosenAccountArr[0];
+        if (this.chosenAccount !== '所有') {
+            Object.assign(params, {
+                account_id: idFromAccountName[this.chosenAccount],
+                account_name: this.chosenAccount
+            });
+        }
+        this.apiService.fetchBillList(params).subscribe(({ code, msg, data }) => {
             if (code === 0) {
                 const { rest, income, pay, item_list } = data;
                 this.billSum = { rest, income, pay };
@@ -128,7 +154,7 @@ export class BillComponent implements OnInit {
             sample_id: this.sampleId,
             type: this.isIncome ? 1 : 0,
             account_id: this.accountId,
-            account_name: this.accountName,
+            account_name: this.chosenAccount,
             money: this.moneyNum,
             label_id: this.labelList[this.nowChosenIndex].id,
             label_img: this.labelList[this.nowChosenIndex].img,

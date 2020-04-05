@@ -106,7 +106,7 @@ export class ApiService {
 
 
     deleteBill(params): Observable<any> {
-        return this.http.post<any>(`${this.domain}/bill/item/delete`, params, httpOptions)
+        return this.http.get<any>(`${this.domain}/bill/item/delete?${this.getQueryString(params)}`, httpOptions)
         .pipe(
             // tap(res => this.log('fetched list')),
             catchError(this.handleError('delete one bill', []))

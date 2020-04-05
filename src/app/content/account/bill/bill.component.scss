@@ -1,5 +1,14 @@
 @import '../../../../var.scss';
 .bill {
+    .flex-around {
+        border-bottom: 1px solid $light-grey;
+        .date-picker {
+            ::ng-deep .am-list-extra {
+                flex-basis: 60%;
+            }
+        }
+    }
+
     .top-counts {
         height: 32vw;
         background: white;

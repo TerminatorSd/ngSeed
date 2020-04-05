@@ -15,7 +15,8 @@
         <ng-container *ngIf="habitHistoryList.length">
             <div *ngFor="let item of habitHistoryList" class="item">
                 <div class="left">
-                    <span> {{ item.day }}</span><br>
+                    <span>第 <span class="color-main">{{ item.day }}</span> 天</span><br><br>
+                    <span>{{ item.date }}</span><br>
                     <span>{{ item.time }}</span>
                 </div>
                 <div class="right clearfix">
