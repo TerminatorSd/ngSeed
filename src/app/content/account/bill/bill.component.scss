@@ -1,7 +1,9 @@
 @import '../../../../var.scss';
 .bill {
     .flex-around {
-        border-bottom: 1px solid $light-grey;
+        &.picker-wrapper {
+            border-bottom: 1px solid $light-grey;
+        }
         .date-picker {
             ::ng-deep .am-list-extra {
                 flex-basis: 60%;
@@ -68,6 +70,11 @@
         }
         ::ng-deep .am-modal-transparent {
             width: 80% !important;
+        }
+        .date-picker {
+            ::ng-deep .am-list-extra {
+                flex-basis: 60%;
+            }
         }
         .img-wrapper {
             margin: 2vw 0;

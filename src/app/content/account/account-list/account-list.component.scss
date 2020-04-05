@@ -74,6 +74,11 @@
         ::ng-deep .am-modal-transparent {
             width: 80% !important;
         }
+        .date-picker {
+            ::ng-deep .am-list-extra {
+                flex-basis: 60%;
+            }
+        }
         .img-wrapper {
             margin: 2vw 0;
             height: 50vw;

@@ -11,4 +11,18 @@ const isFullScreen = () => {  //，这里根据返回值 true 或false ,返回tr
     return result;
 };
 
-export { isFullScreen }
+// 把date类型转换为用-连接的字符串，type为day或month
+const dateTransform = (date: Date, type): string => {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const monthStr = month < 10 ? `0${month}` : month;
+    const day = date.getDate();
+    const dayStr = day < 10 ? `0${day}` : day;
+    if (type === 'day') {
+        return `${year}-${monthStr}-${dayStr}`;
+    } else {
+        return `${year}-${monthStr}`;
+    }
+};
+
+export { isFullScreen, dateTransform };

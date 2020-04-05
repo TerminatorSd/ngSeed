@@ -1,5 +1,5 @@
 <div class="bill">
-    <div class="flex-around">
+    <div class="flex-around picker-wrapper">
         <div class="date-picker flex-1">
             <ListItem DatePicker [extra]="currentDateFormat(chosenMonth, 'yyyy-mm')" [arrow]="'horizontal'"
                 [mode]="'month'" [(ngModel)]="chosenMonth" (onOk)="getBillList()">
@@ -58,9 +58,24 @@
     <div style="margin-top: 2vw;"></div>
 
     <Modal [(ngModel)]="showModal" [transparent]="true" [title]="'记它一笔'" class="modal">
-        <div class="content">
-            <input type="number" name="moneyNum" placeholder="输入金额" [(ngModel)]="moneyNum">
-            <input type="text" class="mt-15" name="comment" placeholder="输入自定义信息" [(ngModel)]="comment">
+        <div class="content flex-around">
+            <div class="flex-1">
+                <input type="number" name="moneyNum" placeholder="输入金额" [(ngModel)]="moneyNum">
+            </div>
+            <div class="flex-1 ml-15">
+                <input type="text" name="comment" placeholder="输入自定义信息" [(ngModel)]="comment">
+            </div>
+        </div>
+        <div class="date-picker">
+            <ListItem
+                DatePicker
+                [extra]="currentDateFormat(chosenDate, 'yyyy-mm-dd')"
+                [arrow]="'horizontal'"
+                [mode]="'date'"
+                [(ngModel)]="chosenDate"
+            >
+                <Brief>选择日期</Brief>
+            </ListItem>
         </div>
         <div class="img-wrapper">
             <ng-container *ngFor="let item of labelList; let i = index">

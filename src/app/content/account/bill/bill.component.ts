@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 import { ToastService } from 'ng-zorro-antd-mobile';
+import { dateTransform } from 'src/app/shared/util';
 
 @Component({
     selector: 'app-bill',
@@ -42,6 +43,7 @@ export class BillComponent implements OnInit {
     }[];
     chosenLabelName: string;
     showModal = false;
+    chosenDate = new Date();
     moneyNum = 0;
     comment: string;
     isIncome = false;
@@ -62,14 +64,6 @@ export class BillComponent implements OnInit {
     }
 
     ngOnInit() {
-        // setTimeout(() => {
-        //     var datePickerDom = document.getElementsByClassName('date-picker')[0];
-        //     // console.log(document.querySelector('.date-picker'))
-        //     // document.querySelector('.date-picker').click();
-        //     datePickerDom.click();
-        // }, 3000)
-        // console.log(this.datePicker.nativeElement);
-        // this.datePicker.onClick();
         this.userId = localStorage.getItem('userId');
         this.route.queryParams.subscribe(({ id, name }) => {
             this.accountId = parseInt(id, 10);
@@ -159,7 +153,8 @@ export class BillComponent implements OnInit {
             label_id: this.labelList[this.nowChosenIndex].id,
             label_img: this.labelList[this.nowChosenIndex].img,
             label_name: this.chosenLabelName,
-            comment: this.comment
+            comment: this.comment,
+            create_time: dateTransform(this.chosenDate, 'day')
         }).subscribe(({ code, msg }) => {
             if (code === 0) {
                 this.toast.success('更新成功~', 2000);
