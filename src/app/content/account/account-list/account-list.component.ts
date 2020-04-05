@@ -15,9 +15,9 @@ export class AccountListComponent implements OnInit {
     accountId: number;
     accountName: string;
     fromList = [
-        { id: 1, name: '微信', img: '' },
-        { id: 2, name: '支付宝', img: '' },
-        { id: 3, name: '银行卡', img: '' },
+        { id: 1, name: '微信' },
+        { id: 2, name: '支付宝' },
+        { id: 3, name: '银行卡' },
     ];
     labelList: {
         id: number;
@@ -119,7 +119,7 @@ export class AccountListComponent implements OnInit {
             label_img: this.labelList[this.nowChosenIndex].img,
             label_name: this.chosenLabelName,
             comment: this.comment,
-            // create_time: dateTransform(this.chosenDate, 'day')
+            create_time: dateTransform(this.chosenDate, 'day')
         }).subscribe(({ code, msg }) => {
             if (code === 0) {
                 this.toast.success('有多辣一笔~', 2000);

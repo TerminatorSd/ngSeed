@@ -1,18 +1,31 @@
 <div class="bill">
     <div class="flex-around picker-wrapper">
-        <div class="date-picker flex-1">
-            <ListItem DatePicker [extra]="currentDateFormat(chosenMonth, 'yyyy-mm')" [arrow]="'horizontal'"
+        <Icon [type]="'left'"></Icon>
+        <div class="date-wrapper">
+            <div class="chosen-date">
+                {{ chosenDateStr }}
+            </div>
+            <ListItem DatePicker style="opacity: 0;" [extra]="currentDateFormat(chosenMonth, 'yyyy-mm')" [arrow]="'horizontal'"
                 [mode]="'month'" [(ngModel)]="chosenMonth" (onOk)="getBillList()">
             </ListItem>
         </div>
-        <div class="flex-1">
-            <ListItem Picker [extra]="chosenAccount" [arrow]="'horizontal'" [data]="accountList"
+        <Icon [type]="'right'"></Icon>
+    </div>
+
+    <div class="flex-around account-wrapper">
+        <div>
+            <img *ngIf="chosenAccount!=='所有'" class="account-img" [src]="'../../../../assets/img/account/' + chosenAccount + '.svg'" alt="">
+            <div *ngIf="chosenAccount==='所有'" class="chosen-account">
+                {{ chosenAccount }}
+            </div>
+            <ListItem Picker style="opacity: 0;" [extra]="chosenAccount" [arrow]="'horizontal'" [data]="accountList"
                 [(ngModel)]="chosenAccountArr" (ngModelChange)="getBillList()">
             </ListItem>
         </div>
     </div>
+
     <div class="top-counts">
-        <span class="label">账户余额 2020/3</span><br>
+        <span class="label">账户余额</span><br>
         <span class="value">{{ billSum?.rest }}</span><br>
         <span class="text">收入</span>
         <span class="num">{{ billSum?.income }}</span>

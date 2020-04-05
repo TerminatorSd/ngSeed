@@ -44,6 +44,7 @@ export class BillComponent implements OnInit {
     chosenLabelName: string;
     showModal = false;
     chosenDate = new Date();
+    chosenDateStr = dateTransform(this.chosenDate, 'month');
     moneyNum = 0;
     comment: string;
     isIncome = false;
@@ -79,9 +80,10 @@ export class BillComponent implements OnInit {
         const monthStr = month < 10 ? `0${month}` : month;
         const tempDay = ["日", "一", "二", "三", "四", "五", "六"];
         // send params
+        this.chosenDateStr = dateTransform(this.chosenDate, 'month');
         const params = {
             user_id: parseInt(this.userId, 10),
-            date: `${year}-${monthStr}`,
+            date: this.chosenDateStr,
         };
         const idFromAccountName = {
             微信: 1,
@@ -154,7 +156,7 @@ export class BillComponent implements OnInit {
             label_img: this.labelList[this.nowChosenIndex].img,
             label_name: this.chosenLabelName,
             comment: this.comment,
-            // create_time: dateTransform(this.chosenDate, 'day')
+            create_time: dateTransform(this.chosenDate, 'day')
         }).subscribe(({ code, msg }) => {
             if (code === 0) {
                 this.toast.success('更新成功~', 2000);

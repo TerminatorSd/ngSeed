@@ -1,9 +1,58 @@
-@import '../../../../var.scss';
+@import "../../../../var.scss";
 .bill {
-    .flex-around {
-        &.picker-wrapper {
-            border-bottom: 1px solid $light-grey;
+    .picker-wrapper {
+        position: absolute;
+        right: 4vw;
+        top: 4vw;
+        width: 50vw;
+        height: 12vw;
+        background: $light-grey;
+        overflow: hidden;
+        icon {
+            font-size: 11vw;
         }
+        .date-wrapper {
+            width: 30vw;
+            height: 12vw;
+            .chosen-date {
+                position: absolute;
+                width: 30vw;
+                text-align: center;
+                line-height: 12vw;
+            }
+        }
+
+        .date-picker {
+            ::ng-deep .am-list-extra {
+                flex-basis: 60%;
+            }
+        }
+    }
+    .account-wrapper {
+        position: absolute;
+        right: 4vw;
+        top: 18vw;
+        width: 14vw;
+        height: 10vw;
+        overflow: hidden;
+        border-radius: 2vw;
+        background: $light-grey;
+        .account-img {
+            position: absolute;
+            right: 0;
+            width: 8vw;
+            height: 8vw;
+            padding: 1vw 3vw;
+            border-radius: 100%;
+        }
+        .chosen-account {
+            position: absolute;
+            right: 0;
+            width: 14vw;
+            text-align: center;
+            line-height: 10vw;
+        }
+
         .date-picker {
             ::ng-deep .am-list-extra {
                 flex-basis: 60%;

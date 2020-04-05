@@ -7,7 +7,7 @@
     <span class="my-account">我的账户</span>
     <div class="from-list">
         <div class="item" *ngFor="let item of fromList">
-            <img src="../../../../assets/img/ya.jpg" alt="" class="pull-left">
+            <img [src]="'../../../../assets/img/account/' + item.name + '.svg'" alt="" class="pull-left">
             <div class="account">
                 {{ item.name }}
             </div>

@@ -1,0 +1,27 @@
+@import '../../../var.scss';
+
+.picker-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 12vw;
+    background: $light-grey;
+    overflow: hidden;
+    icon {
+        font-size: 11vw;
+    }
+    .date-wrapper {
+        width: 80%;
+        height: 12vw;
+        .chosen-date {
+            position: absolute;
+            width: 80%;
+            text-align: center;
+            line-height: 12vw;
+        }
+    }
+    .date-picker {
+        ::ng-deep .am-list-extra {
+            flex-basis: 60%;
+        }
+    }
+}

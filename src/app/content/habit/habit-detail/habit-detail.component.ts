@@ -14,6 +14,7 @@ export class HabitDetailComponent implements OnInit {
     habitHistoryList: {
         sample_id?: number; word: string; img: string;
         create_time: string; day: string; date: string; time: string;
+        update_time: string;
     }[] = [];
     punchContent = '';
     showModal = false;
@@ -67,10 +68,12 @@ export class HabitDetailComponent implements OnInit {
             if (code === 0) {
                 this.habitHistoryList = data || [];
                 this.habitHistoryList.forEach(item => {
-                    item.date = item.create_time
+                    // 后向兼容
+                    const dateTime = item.update_time ? item.update_time : item.create_time;
+                    item.date = dateTime
                         .split(' ')[0].split('-')
                         .filter((ele, index) => index > 0).join('-');
-                    item.time = item.create_time
+                    item.time = dateTime
                         .split(' ')[1].split(':')
                         .filter((ele, index) => index < 2).join(':');
                 });
@@ -102,7 +105,7 @@ export class HabitDetailComponent implements OnInit {
                 habit_id: parseInt(this.habitId, 10),
                 habit_name: this.habitName,
                 word: this.punchContent,
-                img: this.files[0].url,
+                img: this.files[0] ? this.files[0].url : '',
             };
         const tempMethod = this.hasPunched ? 'updatePunch' : 'excPunch';
         this.apiService[tempMethod](params).subscribe(({ code, msg }) => {
