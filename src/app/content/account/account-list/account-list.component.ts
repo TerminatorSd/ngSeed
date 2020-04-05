@@ -119,7 +119,7 @@ export class AccountListComponent implements OnInit {
             label_img: this.labelList[this.nowChosenIndex].img,
             label_name: this.chosenLabelName,
             comment: this.comment,
-            create_time: dateTransform(this.chosenDate, 'day')
+            // create_time: dateTransform(this.chosenDate, 'day')
         }).subscribe(({ code, msg }) => {
             if (code === 0) {
                 this.toast.success('有多辣一笔~', 2000);

@@ -3,9 +3,9 @@
         <div class="today">
             {{ today }}
         </div>
-        <div class="circle" [ngClass]="{'active': punchFlag}" (click)="popModal()">
-            <img *ngIf="!punchFlag" src="../../../../assets/img/habit/dui-grey.svg" alt="">
-            <img *ngIf="punchFlag" src="../../../../assets/img/habit/dui-active.svg" alt="">
+        <div class="circle" [ngClass]="{'active': hasPunched}" (click)="popModal()">
+            <img *ngIf="!hasPunched" src="../../../../assets/img/habit/dui-grey.svg" alt="">
+            <img *ngIf="hasPunched" src="../../../../assets/img/habit/dui-active.svg" alt="">
         </div>
     </div>
     <div class="habit-history">
@@ -33,7 +33,15 @@
     </div>
     <Modal [(ngModel)]="showModal" [transparent]="true" [title]="'来打卡啦老妹儿'" class="modal">
         <div class="content">
-            <textarea name="punchText" id="" cols="30" rows="10" [(ngModel)]="punchContent"></textarea>
+            <textarea name="punchText" id="" cols="30" rows="6" [(ngModel)]="punchContent"></textarea>
+        </div>
+        <div class="img-wrapper">
+            <ImagePicker
+                [files]="files"
+                [multiple]="multipleTab === 1"
+                [selectable]="files.length < 1"
+                (onChange)="fileChange($event)"
+            ></ImagePicker>
         </div>
         <div class="footer">
             <button (click)="doPunch()">走你</button>

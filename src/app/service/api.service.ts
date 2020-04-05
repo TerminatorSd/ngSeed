@@ -56,6 +56,14 @@ export class ApiService {
             );
     }
 
+    updatePunch(params): Observable<any> {
+        return this.http.post<any>(`${this.domain}/punch/update`, params, httpOptions)
+            .pipe(
+                // tap(res => this.log('fetched list')),
+                catchError(this.handleError('user do punch update', []))
+            );
+    }
+
     fetchHabitHistory(params): Observable<any> {
         return this.http.get<any>(`${this.domain}/habit/history?${this.getQueryString(params)}`, httpOptions)
         .pipe(
