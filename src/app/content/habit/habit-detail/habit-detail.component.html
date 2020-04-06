@@ -21,7 +21,7 @@
                 </div>
                 <div class="right clearfix">
                     <span class="word">{{ item.word }}</span>
-                    <img src="../../../../assets/img/ya.jpg" alt="">
+                    <img [src]="item.img && item.img !== 'img' ? 'http://img.shaodongweb.top/images/' + item.img : '../../../../assets/img/ya.jpg'" alt="">
                 </div>
             </div>
         </ng-container>

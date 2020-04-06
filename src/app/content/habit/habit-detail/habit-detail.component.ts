@@ -99,7 +99,7 @@ export class HabitDetailComponent implements OnInit {
         const params = this.hasPunched ? {
             sample_id: this.habitHistoryList[0].sample_id,
             word: this.punchContent,
-            img: this.files[0].url
+            img: this.files[0] ? this.files[0].url : ''
         } : {
                 user_id: parseInt(this.userId, 10),
                 habit_id: parseInt(this.habitId, 10),
